@@ -23,6 +23,7 @@ export {
 } from "./i18n"
 export type { BibDB, BiblatexParseResult } from "./import/biblatex"
 export { BibLatexParser, parse, parseAsync } from "./import/biblatex"
+export type { CitaviInput } from "./import/citavi"
 export { CitaviParser, parseCitavi } from "./import/citavi"
 export { CitaviXmlParser, parseCitaviXml } from "./import/citavi-xml"
 export { CSLParser, parseCSL } from "./import/csl"

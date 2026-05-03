@@ -2,13 +2,16 @@ import {
     type BibDB,
     BibLatexExporter,
     BibLatexParser,
+    type CitaviInput,
     CitaviParser,
     CitaviXmlParser,
+    type CSLEntry,
     CSLExporter,
     CSLParser,
     DocxCitationsParser,
     ENWParser,
     EndNoteParser,
+    type EndNoteRecord,
     edtfParse,
     getFieldHelp,
     getFieldTitle,
@@ -229,8 +232,7 @@ function importBibLatex(input: string): BibDB {
 
 function importCSL(input: string): BibDB {
     // CSLParser accepts Record<string, CSLEntry>; JSON.parse gives us that shape.
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const json = JSON.parse(input) as any
+    const json = JSON.parse(input) as Record<string, CSLEntry>
     const parser = new CSLParser(json)
     const bibDB = parser.parse()
     if (parser.errors.length) console.warn("CSL errors:", parser.errors)
@@ -293,8 +295,7 @@ function importEndNote(input: string): BibDB {
         ),
     ).map((el) => nodeToObj(el as Element))
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const parser = new EndNoteParser(records as any)
+    const parser = new EndNoteParser(records as EndNoteRecord[])
     const { entries, errors, warnings } = parser.parse()
     if (errors.length) console.warn("EndNote errors:", errors)
     if (warnings.length) console.warn("EndNote warnings:", warnings)
@@ -302,8 +303,7 @@ function importEndNote(input: string): BibDB {
 }
 
 function importCitavi(input: string): BibDB {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const json = JSON.parse(input) as any
+    const json = JSON.parse(input) as CitaviInput
     const parser = new CitaviParser(json)
     const bibDB = parser.parse()
     if (parser.errors.length) console.warn("Citavi errors:", parser.errors)
@@ -415,12 +415,12 @@ async function importDocumentFile(
     format: "docx" | "odt",
 ): Promise<BibDB> {
     // JSZip is loaded via CDN script tag — access it through globalThis
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const JSZip = (globalThis as any).JSZip as {
+    type JSZipType = {
         loadAsync(data: ArrayBuffer): Promise<{
             files: Record<string, { async(type: "string"): Promise<string> }>
         }>
     }
+    const JSZip = (globalThis as { JSZip?: JSZipType }).JSZip
     if (!JSZip) {
         throw new Error(
             "JSZip is not loaded. Make sure the CDN script tag is present.",
