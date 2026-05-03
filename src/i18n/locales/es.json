@@ -15,7 +15,7 @@
         "chapter": "Capítulo o sección",
         "commentator": "Autor(es) del comentario",
         "date": "Fecha de publicación",
-        "doi": "Identificador digital de objeto (DOI)",
+        "doi": "DOI",
         "edition": "Edición",
         "editor": "Editor(es)",
         "editora": "Editor secundario",
@@ -29,7 +29,7 @@
         "entrysubtype": "Subtipo de entrada",
         "eprint": "Identificador electrónico de una publicación online",
         "eprintclass": "Información adicional de una publicación online",
-        "eprinttype": "Tipo del identificador de la impresión digital",
+        "eprinttype": "Tipo de identificador de publicación electrónica",
         "eventdate": "Fecha del evento",
         "eventtitle": "Título del evento",
         "file": "Enlace local a la obra",
@@ -59,7 +59,7 @@
         "mainsubtitle": "Subtítulo principal",
         "maintitle": "Título principal",
         "maintitleaddon": "Anexo al título principal",
-        "nameaddon": "nombre del autor del addon",
+        "nameaddon": "Complemento del nombre del autor",
         "note": "Nota",
         "number": "Número del trabajo en una serie",
         "organization": "Organización(es)",
@@ -85,12 +85,12 @@
         "shorttitle": "Título abreviado",
         "subtitle": "Subtítulo",
         "title": "Título",
-        "titleaddon": "Título postfix",
+        "titleaddon": "Complemento del título",
         "translator": "Traductor(es)",
         "type": "Tipo del manual",
         "url": "URL",
         "urldate": "Fecha de acceso",
-        "venue": "Lugar de la conferencia",
+        "venue": "Lugar del evento",
         "version": "Versión",
         "volume": "Volumen",
         "volumes": "Número total de volúmenes"
@@ -111,38 +111,38 @@
         "article-journal": "Artículo de revista cientifica",
         "article-magazine": "Artículo de revista",
         "article-newspaper": "Artículo de periodico",
-        "artwork": "Artwork",
-        "audio": "Audio recording",
+        "artwork": "Obra de arte",
+        "audio": "Grabación de audio",
         "book": "Libro",
         "bookinbook": "Libro en libro",
         "booklet": "Folleto",
-        "classic": "Classic",
+        "classic": "Clásico",
         "collection": "Colección",
-        "dataset": "Dataset",
+        "dataset": "Conjunto de datos",
         "entry-dictionary": "Entrada en Diccionario",
         "entry-encyclopedia": "Entrada en Enciclopedia",
-        "figure": "Figure",
-        "hearing": "Hearing",
+        "figure": "Figura",
+        "hearing": "Audiencia",
         "inbook": "Fragmento de libro",
         "incollection": "En colección",
         "inproceedings": "Artículo en un acta",
         "inreference": "Artículo en una obra de referencia",
-        "interview": "Interview",
-        "legal_case": "Legal case",
-        "legislation": "Legislation",
+        "interview": "Entrevista",
+        "legal_case": "Caso jurídico",
+        "legislation": "Legislación",
         "manual": "Manual",
-        "map": "Map",
+        "map": "Mapa",
         "misc": "Miscelánea",
         "mvcollection": "Colección de varios volúmenes",
         "mvbook": "Libro de varios volúmenes",
-        "mvproceedings": "Actas de varios volumenes",
+        "mvproceedings": "Actas de varios volúmenes",
         "mvreference": "Obra de múltiples volúmenes de referencia",
         "online": "Recurso online",
         "patent": "Patente",
         "periodical": "Periódico",
-        "personal_communication": "Personal communication",
+        "personal_communication": "Comunicación personal",
         "post": "Publicación en el foro",
-        "post-weblog": "Entrada en Blog",
+        "post-weblog": "Entrada de blog",
         "proceedings": "Actas",
         "reference": "Referencia",
         "report": "Reporte",
@@ -152,37 +152,37 @@
         "suppperiodical": "Material adicional en un periódico",
         "thesis": "Tesis",
         "unpublished": "No publicado",
-        "video": "Video"
+        "video": "Vídeo"
     },
     "fieldTitlesByType": {
         "artwork": {
-            "author": "Artist(s)"
+            "author": "Artista(s)"
         },
         "audio": {
-            "author": "Artist(s)/Performer(s)",
-            "editor": "Producer(s)"
+            "author": "Artista(s)/Intérprete(s)",
+            "editor": "Productor(es)"
         },
         "hearing": {
-            "author": "Witness(es)",
-            "editor": "Chair(s)"
+            "author": "Testigo(s)",
+            "editor": "Presidente(s)"
         },
         "interview": {
-            "author": "Interviewee(s)",
-            "editor": "Interviewer(s)"
+            "author": "Entrevistado(s)",
+            "editor": "Entrevistador(es)"
         },
         "legal_case": {
-            "author": "Plaintiff(s)",
-            "editor": "Counsel"
+            "author": "Demandante(s)",
+            "editor": "Abogado(s)"
         },
         "legislation": {
-            "author": "Sponsor(s)"
+            "author": "Proponente(s)"
         },
         "personal_communication": {
-            "author": "Sender(s)",
-            "editor": "Recipient(s)"
+            "author": "Remitente(s)",
+            "editor": "Destinatario(s)"
         },
         "video": {
-            "author": "Director(s)"
+            "author": "Director(es)"
         }
     },
     "langidOptions": {
@@ -209,7 +209,7 @@
         "farsi": "Persa",
         "finnish": "Finlandés",
         "french": "Francés",
-        "cafrench": "Frances canadiense",
+        "cafrench": "Francés canadiense",
         "german": "Alemán",
         "atgerman": "Alemán austriaco",
         "greek": "Griego",
@@ -221,7 +221,7 @@
         "latin": "Latín",
         "latvian": "Letón",
         "lithuanian": "Lituano",
-        "magyar": "Magiar",
+        "magyar": "Magyar",
         "mongolian": "Mongol",
         "norwegian": "Noruego",
         "newnorwegian": "Nuevo noruego",
@@ -259,8 +259,8 @@
         "inpreparation": "En preparación",
         "submitted": "Enviado",
         "forthcoming": "Próximo",
-        "inpress": "Imprimiendo",
-        "prepublished": "Pre publicado",
+        "inpress": "En prensa",
+        "prepublished": "Prepublicado",
         "mathesis": "Tesis de Maestría",
         "phdthesis": "Tesis de doctorado",
         "candthesis": "Tesis de candidatura",

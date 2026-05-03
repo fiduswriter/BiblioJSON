@@ -34,7 +34,7 @@
  *   npm run compile_i18n
  *
  * ## Supported languages
- * bg, de, en, es, fr, it, pt-BR
+ * ar, bg, cs, de, en, es, fr, it, ja, ko, nl, pl, pt-BR, pt-PT, ru, sv, tr, zh
  */
 
 // ---------------------------------------------------------------------------
@@ -57,9 +57,47 @@ import type { Locale } from "./types"
 // Locale registry
 // ---------------------------------------------------------------------------
 
-import { bg, de, en, es, fr, it, ptBR } from "./locales"
+import {
+    ar,
+    bg,
+    cs,
+    de,
+    en,
+    es,
+    fr,
+    it,
+    ja,
+    ko,
+    nl,
+    pl,
+    ptBR,
+    ptPT,
+    ru,
+    sv,
+    tr,
+    zh,
+} from "./locales"
 
-export { bg, de, en, es, fr, it, ptBR }
+export {
+    ar,
+    bg,
+    cs,
+    de,
+    en,
+    es,
+    fr,
+    it,
+    ja,
+    ko,
+    nl,
+    pl,
+    ptBR,
+    ptPT,
+    ru,
+    sv,
+    tr,
+    zh,
+}
 
 /**
  * All built-in locales keyed by IETF language tag.
@@ -68,13 +106,24 @@ export { bg, de, en, es, fr, it, ptBR }
  * object — every public helper accepts a `Locale` directly.
  */
 export const locales: Readonly<Record<string, Locale>> = Object.freeze({
+    ar,
     bg,
+    cs,
     de,
     en,
     es,
     fr,
     it,
+    ja,
+    ko,
+    nl,
+    pl,
     "pt-BR": ptBR,
+    "pt-PT": ptPT,
+    ru,
+    sv,
+    tr,
+    zh,
 })
 
 // ---------------------------------------------------------------------------
