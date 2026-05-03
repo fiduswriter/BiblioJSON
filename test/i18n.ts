@@ -3,6 +3,7 @@ import {
     ar,
     bg,
     cs,
+    da,
     de,
     en,
     es,
@@ -17,6 +18,7 @@ import {
     ja,
     ko,
     locales,
+    nb,
     nl,
     pl,
     ptBR,
@@ -32,6 +34,7 @@ const ALL_LOCALES: Record<string, Locale> = {
     ar,
     bg,
     cs,
+    da,
     de,
     en,
     es,
@@ -40,6 +43,7 @@ const ALL_LOCALES: Record<string, Locale> = {
     ja,
     ko,
     nl,
+    nb,
     pl,
     "pt-BR": ptBR,
     "pt-PT": ptPT,
@@ -197,6 +201,13 @@ describe("i18n translation completeness", () => {
                     "volume",
                     // Portuguese cognates
                     "volume",
+                    // Danish cognates
+                    "institution",
+                    "note",
+                    "version",
+                    // Norwegian cognates
+                    "institution",
+                    "version",
                 ]
                 const unexpected = mismatches.filter(
                     (k) => !allowedSame.includes(k),
@@ -241,6 +252,16 @@ describe("i18n translation completeness", () => {
                     "patent",
                     // Turkish cognates
                     "patent",
+                    // Danish cognates
+                    "interview",
+                    "manual",
+                    "patent",
+                    "software",
+                    "video",
+                    // Norwegian cognates
+                    "manual",
+                    "patent",
+                    "video",
                 ]
                 const unexpected = mismatches.filter(
                     (k) => !allowedSame.includes(k),

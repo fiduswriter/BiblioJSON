@@ -34,13 +34,26 @@ src/
 │   ├── types.ts          # TypeScript interfaces: Locale, FieldTitles, TypeTitles, …
 │   ├── locales.ts        # Auto-generated barrel file (do not edit by hand)
 │   └── locales/          # JSON source files, one per language
+│       ├── ar.json       # Arabic
 │       ├── bg.json       # Bulgarian
+│       ├── cs.json       # Czech
+│       ├── da.json       # Danish
 │       ├── de.json       # German
 │       ├── en.json       # English
 │       ├── es.json       # Spanish
 │       ├── fr.json       # French
 │       ├── it.json       # Italian
-│       └── pt-BR.json    # Brazilian Portuguese
+│       ├── ja.json       # Japanese
+│       ├── ko.json       # Korean
+│       ├── nl.json       # Dutch
+│       ├── no.json       # Norwegian
+│       ├── pl.json       # Polish
+│       ├── pt-BR.json    # Brazilian Portuguese
+│       ├── pt-PT.json    # Portuguese (Portugal)
+│       ├── ru.json       # Russian
+│       ├── sv.json       # Swedish
+│       ├── tr.json       # Turkish
+│       └── zh.json       # Chinese (Simplified)
 ├── import/               # Parsers for various bibliography formats
 │   ├── biblatex.ts       # BibLaTeX/BibTeX parser
 │   ├── citavi.ts         # Citavi JSON parser
@@ -176,7 +189,7 @@ Both document citation parsers provide:
 
 **i18n Module:**
 - `getLocale()`, `getFieldTitle()`, `getTypeTitle()` — Get translated labels
-- Available languages: `ar`, `bg`, `cs`, `de`, `en`, `es`, `fr`, `it`, `ja`, `ko`, `nl`, `pl`, `pt-BR`, `pt-PT`, `ru`, `sv`, `tr`, `zh`
+- Available languages: `ar`, `bg`, `cs`, `da`, `de`, `en`, `es`, `fr`, `it`, `ja`, `ko`, `nb`, `nl`, `pl`, `pt-BR`, `pt-PT`, `ru`, `sv`, `tr`, `zh`
 
 See [API.md](API.md) for detailed usage examples and type definitions.
 
@@ -191,7 +204,7 @@ compiled bundle `demo/demo.js` (built by `npm run compile_demo`).
   EndNote XML, and Citavi JSON. The file-input `accept` attribute updates automatically.
 - **File upload or paste** — load a bibliography by choosing a file or pasting text
   directly into the paste area.
-- **Language selector** — choose from all 18 supported UI languages. Changing the
+- **Language selector** — choose from all supported display languages. Changing the
   language re-renders the BibDB panel instantly (no re-import required) using
   `getLocale()` / `getFieldTitle()` / `getTypeTitle()`.
 - **Three-column output**:
