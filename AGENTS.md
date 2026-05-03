@@ -17,7 +17,7 @@ The library handles conversions between:
 
 The internal JSON format preserves all information from BibLaTeX imports, which CSL JSON cannot fully represent, enabling round-trip conversions without data loss.
 
-The library also ships a full **i18n module** (`src/i18n/`) with human-readable translations of field names, entry-type names, option values, and help text in seven languages.
+The library also ships a full **i18n module** (`src/i18n/`) with human-readable translations of field names, entry-type names, option values, and help text in 18 languages.
 
 ## Architecture
 
@@ -176,7 +176,7 @@ Both document citation parsers provide:
 
 **i18n Module:**
 - `getLocale()`, `getFieldTitle()`, `getTypeTitle()` — Get translated labels
-- Available languages: `bg`, `de`, `en`, `es`, `fr`, `it`, `pt-BR`
+- Available languages: `ar`, `bg`, `cs`, `de`, `en`, `es`, `fr`, `it`, `ja`, `ko`, `nl`, `pl`, `pt-BR`, `pt-PT`, `ru`, `sv`, `tr`, `zh`
 
 See [API.md](API.md) for detailed usage examples and type definitions.
 
@@ -191,7 +191,7 @@ compiled bundle `demo/demo.js` (built by `npm run compile_demo`).
   EndNote XML, and Citavi JSON. The file-input `accept` attribute updates automatically.
 - **File upload or paste** — load a bibliography by choosing a file or pasting text
   directly into the paste area.
-- **Language selector** — choose from all seven supported UI languages. Changing the
+- **Language selector** — choose from all 18 supported UI languages. Changing the
   language re-renders the BibDB panel instantly (no re-import required) using
   `getLocale()` / `getFieldTitle()` / `getTypeTitle()`.
 - **Three-column output**:
@@ -202,7 +202,7 @@ compiled bundle `demo/demo.js` (built by `npm run compile_demo`).
     round-trip fidelity.
 - **Stats bar** — entry count and processing time after each import.
 - **Locale showcase** — a permanent grid at the bottom of the page that renders the
-  "Journal article / Author(s)" label in all seven languages, demonstrating the i18n
+  "Journal article / Author(s)" label in all supported languages, demonstrating the i18n
   data without requiring a file import.
 
 ### Entry-Point (`src/entries/demo.ts`)
