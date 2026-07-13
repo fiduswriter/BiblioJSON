@@ -58,7 +58,7 @@ export class CSLParser {
     }
 
     parse(): Record<number, EntryObject> {
-        // Convert each CSL entry to internal format
+        // Convert each CSL entry to BiblioJSON
         for (const [id, entry] of Object.entries(this.input)) {
             const convertedEntry = this.convertEntry(entry, id)
             if (convertedEntry) {

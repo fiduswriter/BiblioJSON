@@ -18,22 +18,98 @@ Try the demo [here](https://fiduswriter.github.io/bibliojson/).
 
 | From | To |
 |------|----|
-| BibLaTeX | Internal JSON |
-| CSL | Internal JSON |
-| Internal JSON | CSL |
-| Internal JSON | BibLaTeX |
+| BibLaTeX | BiblioJSON |
+| CSL | BiblioJSON |
+| BiblioJSON | CSL |
+| BiblioJSON | BibLaTeX |
 
 ### Additional import formats
 
 | From | To |
 |------|----|
-| EndNote | Internal JSON |
-| RIS | Internal JSON |
-| Citavi | Internal JSON |
-| DOCX native format | Internal JSON |
-| ODT native format | Internal JSON |
+| EndNote | BiblioJSON |
+| RIS | BiblioJSON |
+| Citavi | BiblioJSON |
+| DOCX native format | BiblioJSON |
+| ODT native format | BiblioJSON |
 
 We can even read the citation information from various citation managers inside ODT/DOCX files!
+
+## The BiblioJSON format
+
+BiblioJSON is the JSON-based bibliography format at the heart of this library. It is designed to preserve as much information as possible from source formats — especially BibLaTeX — so that data can be exported again to either BibLaTeX or CSL-JSON without loss.
+
+### Why BiblioJSON instead of CSL-JSON?
+
+CSL-JSON cannot represent everything that BibLaTeX can express. If we used CSL-JSON as the internal representation, details such as BibLaTeX-specific fields, name particles, or date granularity would be lost on round-trip. BiblioJSON keeps that information structured and accessible, so converting BibLaTeX → BiblioJSON → CSL, or CSL → BiblioJSON → BibLaTeX, stays as faithful as possible.
+
+### Top-level structure: `BibDB`
+
+A parsed bibliography is returned as a `BibDB` — a plain object whose keys are numeric entry IDs and whose values are `EntryObject`s:
+
+```json
+{
+  "1": { /* EntryObject */ },
+  "2": { /* EntryObject */ }
+}
+```
+
+### `EntryObject`
+
+Each entry has the following shape:
+
+| Key | Type | Description |
+|-----|------|-------------|
+| `entry_key` | `string` | The citation key (e.g. `"doe2023"`). |
+| `bib_type` | `string` | The BiblioJSON entry type (e.g. `"article-journal"`, `"book"`). |
+| `fields` | `object` | The main, normalized fields for the entry. |
+| `unexpected_fields` | `object` | Fields that are valid BibLaTeX fields but not expected for this entry type (only present when `processUnexpected` is enabled). |
+| `unknown_fields` | `object` | Fields that are not part of the BibLaTeX spec (only present when `processUnknown` is enabled). |
+| `raw_fields` | `object` | The almost-raw, pre-processed field contents from the source file. |
+| `location` | `object` | Start/end offsets of the entry in the source text (only when `includeLocation` is enabled). |
+| `raw_text` | `string` | The raw source text of the entry (only when `includeRawText` is enabled). |
+| `incomplete` | `boolean` | Set when the parser could not fully parse the entry. |
+
+### Field value types
+
+Values inside `fields` are stored according to their semantic type so that exporters can render them correctly:
+
+| BiblioJSON type | Used for | Example JSON value |
+|-----------------|----------|--------------------|
+| `f_literal` / `f_long_literal` | Plain text fields such as `abstract` or `note`. | `[{"type":"text","text":"..."}]` |
+| `f_title` | Title fields (`title`, `booktitle`, `journaltitle`, …). Titles keep capitalization and markup. | `[{"type":"text","text":"The Title"}]` |
+| `f_name` | Names (`author`, `editor`, `translator`, …). | `[{"family":[{"type":"text","text":"Doe"}],"given":[{"type":"text","text":"Jane"}]}]` |
+| `f_date` | Dates (`date`, `origdate`, `urldate`, …) as EDTF strings. | `"2023-05"` |
+| `f_key` | Controlled vocabulary (`langid`, `pagination`, `type`, …). | `"english"` |
+| `f_integer` | Integer values (`edition`, `volume`, …). | `3` |
+| `f_verbatim` | Values that should not be interpreted (`doi`, `isbn`, …). | `"10.1000/abc"` |
+| `f_uri` | URI values (`url`, `eprint`, …). | `"https://example.org"` |
+
+Rich text is represented as a `NodeArray` — an array of nodes. A plain text node looks like `{"type":"text","text":"..."}`. Nodes can also carry `marks` for formatting such as bold, italic, small-caps, superscript, or subscript, allowing markup to survive round-trips.
+
+### Minimal example
+
+```json
+{
+  "1": {
+    "entry_key": "sample1",
+    "bib_type": "article-journal",
+    "fields": {
+      "title": [{"type": "text", "text": "Sample title"}],
+      "author": [
+        {
+          "family": [{"type": "text", "text": "Doe"}],
+          "given": [{"type": "text", "text": "Jane"}]
+        }
+      ],
+      "date": "2023",
+      "journaltitle": [{"type": "text", "text": "Journal Name"}]
+    }
+  }
+}
+```
+
+For the complete list of entry types and fields, see the TypeScript definitions in `src/const.ts` or the API documentation in **[API.md](API.md)**.
 
 ## Usage
 
@@ -67,9 +143,9 @@ Other software, such as EndNote, Citavi, and Mendeley, is proprietary and closed
 
 ---
 
-**Q:** Why do you use a different JSON as an internal format instead of just the JSON format of CSL? Wouldn't that save you one conversion step?
+**Q:** Why do you use BiblioJSON instead of just the JSON format of CSL? Wouldn't that save you one conversion step?
 
-**A:** Unfortunately, the CSL JSON format cannot hold all the information we import from BibLaTeX. If we used CSL JSON internally, we would lose information that we may want to export to BibLaTeX later on.
+**A:** Unfortunately, the CSL JSON format cannot hold all the information we import from BibLaTeX. If we used CSL JSON internally, we would lose information that we may want to export to BibLaTeX later on. BiblioJSON is designed to keep that information structured and lossless.
 
 ---
 

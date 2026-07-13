@@ -25,7 +25,7 @@
 
 ### BibLatexParser
 
-Parses BibLaTeX/BibTeX bibliography files into the internal JSON format.
+Parses BibLaTeX/BibTeX bibliography files into the BiblioJSON.
 
 #### Constructor
 
@@ -77,7 +77,7 @@ const { entries, errors, warnings } = parser.parse()
 
 ### CSLParser
 
-Parses CSL JSON into the internal JSON format.
+Parses CSL JSON into the BiblioJSON.
 
 #### Constructor
 
@@ -217,7 +217,7 @@ parse(): BibDB
 
 ### BibLatexExporter
 
-Exports the internal JSON format to BibLaTeX.
+Exports the BiblioJSON to BibLaTeX.
 
 #### Constructor
 
@@ -260,7 +260,7 @@ const biblatexString = exporter.parse()
 
 ### CSLExporter
 
-Exports the internal JSON format to CSL JSON.
+Exports the BiblioJSON to CSL JSON.
 
 #### Constructor
 

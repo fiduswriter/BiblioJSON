@@ -2,14 +2,14 @@ import { expect } from "chai"
 import * as converter from "../src/index.ts"
 
 const roundTripTest = (biblatex) => {
-    // Parse BibLaTeX to internal format
+    // Parse BibLaTeX to BiblioJSON
     const parsed = converter.parse(biblatex)
     // Convert to CSL
     const cslExporter = new converter.CSLExporter(parsed.entries, null, {
         useEntryKeys: true,
     })
     const csl = cslExporter.parse()
-    // Convert back to internal format
+    // Convert back to BiblioJSON
     const backToParsed = converter.parseCSL(csl)
     // Convert both to BibLaTeX for comparison
     const bibExporter1 = new converter.BibLatexExporter(parsed.entries)

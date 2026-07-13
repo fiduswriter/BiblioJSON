@@ -315,7 +315,7 @@ export class EndNoteParser {
     }
 
     parse(): EndNoteParseResult {
-        // Convert each EndNote entry to internal format
+        // Convert each EndNote entry to BiblioJSON
         for (let i = 0; i < this.input.length; i++) {
             const record = this.input[i]
             const convertedEntry = this.convertRecord(record, i + 1)

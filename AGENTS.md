@@ -7,15 +7,15 @@
 ### Core Functionality
 
 The library handles conversions between:
-- **BibLaTeX/BibTeX** ↔ **Internal JSON format**
-- **Internal JSON format** ↔ **CSL (Citation Style Language)**
-- **CSL JSON** → **Internal JSON format**
-- **EndNote XML** → **Internal JSON format**
-- **RIS** → **Internal JSON format**
-- **ENW (EndNote Web)** → **Internal JSON format**
-- **Citavi JSON** → **Internal JSON format**
+- **BibLaTeX/BibTeX** ↔ **BiblioJSON format**
+- **BiblioJSON format** ↔ **CSL (Citation Style Language)**
+- **CSL JSON** → **BiblioJSON format**
+- **EndNote XML** → **BiblioJSON format**
+- **RIS** → **BiblioJSON format**
+- **ENW (EndNote Web)** → **BiblioJSON format**
+- **Citavi JSON** → **BiblioJSON format**
 
-The internal JSON format preserves all information from BibLaTeX imports, which CSL JSON cannot fully represent, enabling round-trip conversions without data loss.
+The BiblioJSON format preserves all information from BibLaTeX imports, which CSL JSON cannot fully represent, enabling round-trip conversions without data loss.
 
 The library also ships a full **i18n module** (`src/i18n/`) with human-readable translations of field names, entry-type names, option values, and help text in 18 languages.
 
@@ -208,7 +208,7 @@ compiled bundle `demo/demo.js` (built by `npm run compile_demo`).
   language re-renders the BibDB panel instantly (no re-import required) using
   `getLocale()` / `getFieldTitle()` / `getTypeTitle()`.
 - **Three-column output**:
-  - *BibDB* — the internal JSON representation, displayed as collapsible entry blocks
+  - *BibDB* — the BiblioJSON representation, displayed as collapsible entry blocks
     with translated field labels and tooltip help badges.
   - *CSL JSON export* — the result of running `CSLExporter` on the parsed BibDB.
   - *BibLaTeX re-export* — the result of running `BibLatexExporter`, demonstrating
@@ -237,9 +237,9 @@ The demo entry-point assigns the following names onto `globalThis` so that the i
 
 ## Important Concepts
 
-### Internal JSON Format
+### BiblioJSON Format
 
-The internal format uses a structured representation:
+The BiblioJSON uses a structured representation:
 - **Rich text fields**: Stored as `NodeArray` — arrays of text nodes with markup
   information
 - **Names**: Stored as `NameDictObject` with separate family, given, prefix, suffix
@@ -359,7 +359,7 @@ It is important to distinguish two very different kinds of files involved in the
 
 ## Notes for AI Agents
 
-1. **Preserve Data Integrity**: The internal JSON format exists to prevent data loss
+1. **Preserve Data Integrity**: The BiblioJSON format exists to prevent data loss
    during round-trip conversions. Always use it as an intermediate format.
 
 2. **Check Errors**: After any parsing operation, check the `errors` and `warnings`
