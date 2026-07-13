@@ -1,8 +1,8 @@
 {
-    "name": "biblatex-csl-converter",
+    "name": "bibliojson",
     "type": "module",
-    "version": "3.6.0",
-    "description": "Bibliography format converter: BibLaTeX, BibTeX, CSL-JSON, RIS, ENW, EndNote XML, Citavi, DOCX citations, ODT citations — parse, convert, and export with round-trip fidelity",
+    "version": "4.0.0",
+    "description": "BiblioJSON: a JSON-based bibliography format with importers and exporters for BibLaTeX, BibTeX, CSL-JSON, RIS, ENW, EndNote XML, Citavi, DOCX citations, and ODT citations",
     "main": "lib/index.cjs",
     "module": "lib/index.js",
     "types": "lib/index.d.ts",
@@ -20,9 +20,10 @@
     ],
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/fiduswriter/biblatex-csl-converter.git"
+        "url": "git+https://github.com/fiduswriter/bibliojson.git"
     },
     "keywords": [
+        "bibliojson",
         "bibtex",
         "biblatex",
         "citations",
@@ -58,9 +59,9 @@
     ],
     "license": "LGPL-3.0",
     "bugs": {
-        "url": "https://github.com/fiduswriter/biblatex-csl-converter/issues"
+        "url": "https://github.com/fiduswriter/bibliojson/issues"
     },
-    "homepage": "https://github.com/fiduswriter/biblatex-csl-converter#readme",
+    "homepage": "https://github.com/fiduswriter/bibliojson#readme",
     "engines": {
         "node": ">=22"
     },
@@ -74,8 +75,8 @@
         "compile_bundle": "rollup src/index.ts --config --output.format cjs --output.file lib/index.cjs --output.sourcemap true",
         "compile_types": "rollup src/index.ts -c rollup.config.dts.ts",
         "compile_demo": "rollup src/entries/demo.ts --config --output.format iife --output.file demo/demo.js",
-        "compile_browser": "npm run compile_browser-export-biblatex && npm run compile_browser-export-csl && npm run compile_browser-import-biblatex && npm run compile_browser-import-csl && npm run compile_browser-biblatex-csl-converter",
-        "compile_browser-biblatex-csl-converter": "rollup src/entries/browser-biblatex-csl-converter.ts --config --output.format iife --output.file browser/biblatex-csl-converter.js",
+        "compile_browser": "npm run compile_browser-export-biblatex && npm run compile_browser-export-csl && npm run compile_browser-import-biblatex && npm run compile_browser-import-csl && npm run compile_browser-bibliojson",
+        "compile_browser-bibliojson": "rollup src/entries/browser-bibliojson.ts --config --output.format iife --output.file browser/bibliojson.js",
         "compile_browser-export-biblatex": "rollup src/entries/browser-export-biblatex.ts --config --output.format iife --output.file browser/export-biblatex.js",
         "compile_browser-export-csl": "rollup src/entries/browser-export-csl.ts --config --output.format iife --output.file browser/export-csl.js",
         "compile_browser-import-biblatex": "rollup src/entries/browser-import-bibtex.ts --config --output.format iife --output.file browser/import-bibtex.js",

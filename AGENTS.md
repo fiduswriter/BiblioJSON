@@ -1,8 +1,8 @@
-# AGENTS.md - AI Agent Guide for biblatex-csl-converter
+# AGENTS.md - AI Agent Guide for BiblioJSON
 
 ## Project Overview
 
-`biblatex-csl-converter` is a JavaScript/TypeScript library that provides conversion capabilities between different bibliography formats. It serves as a critical component in the Fidus Writer ecosystem for handling citation management.
+`bibliojson` is a JavaScript/TypeScript library that defines a JSON-based bibliography format and provides importers and exporters to and from other bibliography formats. It serves as a critical component in the Fidus Writer ecosystem for handling citation management.
 
 ### Core Functionality
 
@@ -73,7 +73,7 @@ src/
 │       ├── index.ts      # Main CSL exporter
 │       └── sentence-caser.ts # Sentence case conversion
 └── entries/              # Rollup entry-point shims for browser/demo bundles
-    ├── browser-biblatex-csl-converter.ts  # Full library IIFE entry
+    ├── browser-bibliojson.ts  # Full library IIFE entry
     ├── browser-export-biblatex.ts         # BibLaTeX exporter IIFE entry
     ├── browser-export-csl.ts              # CSL exporter IIFE entry
     ├── browser-import-bibtex.ts           # BibLaTeX parser IIFE entry
@@ -331,7 +331,7 @@ All parsers follow the same pattern:
 ## Browser Usage
 
 Pre-built browser bundles are available in the `browser/` directory:
-- `biblatex-csl-converter.js` — Full library
+- `bibliojson.js` — Full library
 - `import-bibtex.js` — BibLaTeX import only
 - `export-biblatex.js` — BibLaTeX export only
 - `import-csl.js` — CSL import only

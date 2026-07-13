@@ -1,5 +1,5 @@
 /**
- * i18n module for biblatex-csl-converter
+ * i18n module for BiblioJSON
  *
  * Provides human-readable labels for reference types, field names, field help
  * text, and option values in multiple languages.

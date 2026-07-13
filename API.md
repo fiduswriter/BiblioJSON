@@ -62,7 +62,7 @@ Asynchronously parse the input (recommended for large files).
 #### Example
 
 ```typescript
-import { BibLatexParser } from 'biblatex-csl-converter'
+import { BibLatexParser } from 'bibliojson'
 
 const parser = new BibLatexParser(biblatexString, {
   processUnexpected: true,
@@ -96,7 +96,7 @@ Returns a BibDB object (Record<number, EntryObject>).
 #### Example
 
 ```typescript
-import { CSLParser } from 'biblatex-csl-converter'
+import { CSLParser } from 'bibliojson'
 
 const cslData = {
   "item1": { type: "article-journal", title: "Example", ... },
@@ -128,7 +128,7 @@ parse(): BibDB
 #### Example
 
 ```typescript
-import { RISParser } from 'biblatex-csl-converter'
+import { RISParser } from 'bibliojson'
 
 const parser = new RISParser(risString)
 const bibDB = parser.parse()
@@ -247,7 +247,7 @@ Returns the BibLaTeX string.
 #### Example
 
 ```typescript
-import { BibLatexExporter } from 'biblatex-csl-converter'
+import { BibLatexExporter } from 'bibliojson'
 
 const exporter = new BibLatexExporter(bibDB, [1, 2, 3], {
   traditionalNames: false
@@ -288,7 +288,7 @@ Returns an array of CSL entries.
 #### Example
 
 ```typescript
-import { CSLExporter } from 'biblatex-csl-converter'
+import { CSLExporter } from 'bibliojson'
 
 const exporter = new CSLExporter(bibDB, undefined, {
   escapeText: true,
@@ -517,7 +517,7 @@ static fieldBibliography(instrText: string): BibliographyResult
 #### Full Document Example
 
 ```typescript
-import { DocxCitationsParser } from 'biblatex-csl-converter'
+import { DocxCitationsParser } from 'bibliojson'
 
 // Full document parsing with all options
 const parser = new DocxCitationsParser(documentXml, {
@@ -746,7 +746,7 @@ const complexResult = OdtCitationsParser.endNotePlaceholder(complexText, true)
 #### Full Document Example
 
 ```typescript
-import { OdtCitationsParser } from 'biblatex-csl-converter'
+import { OdtCitationsParser } from 'bibliojson'
 
 const parser = new OdtCitationsParser(contentXml)
 const { entries, errors, warnings } = parser.parse()
@@ -811,7 +811,7 @@ Get the human-readable title for option values (editortype, pagination, pubstate
 ### Example
 
 ```typescript
-import { getLocale, getFieldTitle, getTypeTitle } from 'biblatex-csl-converter'
+import { getLocale, getFieldTitle, getTypeTitle } from 'bibliojson'
 
 const locale = getLocale('de')
 const authorLabel = getFieldTitle(locale, 'article-journal', 'author')
@@ -826,7 +826,7 @@ const typeLabel = getTypeTitle(locale, 'article-journal')
 Access all locales via the `locales` export:
 
 ```typescript
-import { locales } from 'biblatex-csl-converter'
+import { locales } from 'bibliojson'
 
 for (const [lang, locale] of Object.entries(locales)) {
   console.log(lang, locale.typeTitles['article-journal'])
@@ -998,7 +998,7 @@ async function* processDocxStream(elementStream) {
 When processing multiple citations, pass a shared `CitationAccumulator` to automatically deduplicate entries:
 
 ```typescript
-import { CitationAccumulator } from 'biblatex-csl-converter'
+import { CitationAccumulator } from 'bibliojson'
 
 // Shared accumulator for all elements
 const acc: CitationAccumulator = {

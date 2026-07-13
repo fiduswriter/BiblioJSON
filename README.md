@@ -1,14 +1,16 @@
-# biblatex-csl-converter
+# BiblioJSON
 
-[![Test CI](https://github.com/fiduswriter/biblatex-csl-converter/actions/workflows/test.yml/badge.svg)](https://github.com/fiduswriter/biblatex-csl-converter/actions/workflows/test.yml)
-[![Coverage Status](https://coveralls.io/repos/github/fiduswriter/biblatex-csl-converter/badge.svg?branch=main)](https://coveralls.io/github/fiduswriter/biblatex-csl-converter?branch=main)
-[![npm version](https://img.shields.io/npm/v/biblatex-csl-converter.svg)](https://www.npmjs.com/package/biblatex-csl-converter)
-[![npm downloads](https://img.shields.io/npm/dm/biblatex-csl-converter.svg)](https://www.npmjs.com/package/biblatex-csl-converter)
+[![Test CI](https://github.com/fiduswriter/bibliojson/actions/workflows/test.yml/badge.svg)](https://github.com/fiduswriter/bibliojson/actions/workflows/test.yml)
+[![Coverage Status](https://coveralls.io/repos/github/fiduswriter/bibliojson/badge.svg?branch=main)](https://coveralls.io/github/fiduswriter/bibliojson?branch=main)
+[![npm version](https://img.shields.io/npm/v/bibliojson.svg)](https://www.npmjs.com/package/bibliojson)
+[![npm downloads](https://img.shields.io/npm/dm/bibliojson.svg)](https://www.npmjs.com/package/bibliojson)
 [![License: LGPL-3.0](https://img.shields.io/badge/License-LGPL%20v3-blue.svg)](https://www.gnu.org/licenses/lgpl-3.0)
 
-A set of JavaScript converters.
+A JSON-based bibliography format with importers and exporters for BibLaTeX, BibTeX, CSL-JSON, RIS, ENW, EndNote XML, Citavi, DOCX citations, and ODT citations.
 
-Try the demo [here](https://fiduswriter.github.io/biblatex-csl-converter/).
+> **Note:** This package was previously published to npm as `biblatex-csl-converter`. The project has been renamed to `bibliojson`; please update your dependencies.
+
+Try the demo [here](https://fiduswriter.github.io/bibliojson/).
 
 ## Supported Conversions
 
@@ -36,7 +38,7 @@ We can even read the citation information from various citation managers inside 
 ## Usage
 
 ```JavaScript
-import {BibLatexParser} from "biblatex-csl-converter"
+import {BibLatexParser} from "bibliojson"
 
 // synchronous:
 let parser = new BibLatexParser(input, {processUnexpected: true, processUnknown: true})
@@ -109,7 +111,7 @@ Other software, such as EndNote, Citavi, and Mendeley, is proprietary and closed
 
 **Q:** I want to include this on my website, and I don't use npm packages, etc. Is there a file I can just add to the header of my webpage?
 
-**A:** Yes, you can download such a file [here](https://github.com/fiduswriter/biblatex-csl-converter/tree/browser).
+**A:** Yes, you can download such a file [here](https://github.com/fiduswriter/bibliojson/tree/browser).
 
 ---
 
