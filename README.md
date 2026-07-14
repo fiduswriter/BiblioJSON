@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/logo.svg" alt="BiblioJSON logo" width="128" height="128">
+</p>
+
 # BiblioJSON
 
 [![Test CI](https://github.com/fiduswriter/bibliojson/actions/workflows/test.yml/badge.svg)](https://github.com/fiduswriter/bibliojson/actions/workflows/test.yml)

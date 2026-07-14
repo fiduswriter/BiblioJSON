@@ -16,7 +16,8 @@
     "files": [
         "lib/",
         "browser/",
-        "src/"
+        "src/",
+        "assets/"
     ],
     "repository": {
         "type": "git",

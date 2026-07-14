@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="cover" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#1d4ed8"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Book/document shape -->
+  <rect x="56" y="40" width="400" height="432" rx="48" ry="48" fill="url(#cover)"/>
+
+  <!-- Page area -->
+  <rect x="104" y="88" width="304" height="336" rx="24" ry="24" fill="#ffffff" opacity="0.12"/>
+
+  <!-- Bookmark ribbon -->
+  <path d="M352 40 L352 168 L376 144 L400 168 L400 40 Z" fill="#f59e0b"/>
+
+  <!-- JSON braces -->
+  <text x="256" y="324" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="192" font-weight="700" fill="#ffffff" text-anchor="middle">{ }</text>
+</svg>
