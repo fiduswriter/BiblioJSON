@@ -4,7 +4,7 @@
 
 # BiblioJSON
 
-[![Test CI](https://github.com/fiduswriter/bibliojson/actions/workflows/test.yml/badge.svg)](https://github.com/fiduswriter/bibliojson/actions/workflows/test.yml)
+[![Test CI](https://github.com/fiduswriter/BiblioJSON/actions/workflows/test.yml/badge.svg)](https://github.com/fiduswriter/BiblioJSON/actions/workflows/test.yml)
 [![Coverage Status](https://coveralls.io/repos/github/fiduswriter/bibliojson/badge.svg?branch=main)](https://coveralls.io/github/fiduswriter/bibliojson?branch=main)
 [![npm version](https://img.shields.io/npm/v/bibliojson.svg)](https://www.npmjs.com/package/bibliojson)
 [![npm downloads](https://img.shields.io/npm/dm/bibliojson.svg)](https://www.npmjs.com/package/bibliojson)
@@ -14,7 +14,7 @@ A JSON-based bibliography format with importers and exporters for BibLaTeX, BibT
 
 > **Note:** This package was previously published to npm as `biblatex-csl-converter`. The project has been renamed to `bibliojson`; please update your dependencies.
 
-Try the demo [here](https://fiduswriter.github.io/bibliojson/).
+Try the demo [here](https://fiduswriter.github.io/BiblioJSON/).
 
 ## Supported Conversions
 
@@ -191,7 +191,7 @@ Other software, such as EndNote, Citavi, and Mendeley, is proprietary and closed
 
 **Q:** I want to include this on my website, and I don't use npm packages, etc. Is there a file I can just add to the header of my webpage?
 
-**A:** Yes, you can download such a file [here](https://github.com/fiduswriter/bibliojson/tree/browser).
+**A:** Yes, you can download such a file [here](https://github.com/fiduswriter/BiblioJSON/tree/browser).
 
 ---
 
