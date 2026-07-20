@@ -72,6 +72,12 @@ src/
 │   └── csl/              # CSL export module
 │       ├── index.ts      # Main CSL exporter
 │       └── sentence-caser.ts # Sentence case conversion
+├── spec/                 # ProseMirror schema specs (no prosemirror runtime dependency)
+│   ├── csl_bib.ts        # cslBibSpec for citeproc HTML bibliography output
+│   ├── common.ts         # Shared node and mark specs
+│   ├── literal.ts        # litSpec for literal fields
+│   ├── literal_long.ts   # longLitSpec for long literal fields
+│   └── title.ts          # titleSpec for title fields
 └── entries/              # Rollup entry-point shims for browser/demo bundles
     ├── browser-bibliojson.ts  # Full library IIFE entry
     ├── browser-export-biblatex.ts         # BibLaTeX exporter IIFE entry
@@ -381,16 +387,22 @@ It is important to distinguish two very different kinds of files involved in the
 7. **Markup Handling**: The `NodeArray` format preserves text formatting. When working
    with text fields, handle the node structure appropriately.
 
-8. **i18n Regeneration**: `src/i18n/locales.ts` is auto-generated. Always run
+8. **Schema Specs**: The `src/spec/` folder contains ProseMirror-compatible schema
+   specs (`cslBibSpec`, `litSpec`, `longLitSpec`, `titleSpec`) that are exported from
+   the main entry point. Consumers that need a `Schema` instantiate one with
+   `new Schema(cslBibSpec)` (or similar). BiblioJSON itself does not depend on
+   ProseMirror.
+
+9. **i18n Regeneration**: `src/i18n/locales.ts` is auto-generated. Always run
    `npm run compile_i18n` after editing any file under `src/i18n/locales/`. Never
    commit manual edits to `locales.ts`.
 
-9. **Demo Entry-Point**: `src/entries/demo.ts` exposes all parsers, exporters, and i18n
-   helpers on `globalThis`. If you add a new public API that should be demonstrable in
-   the demo, add it to both the `import` block and the `Object.assign(globalThis, …)`
-   call in that file, then run `npm run compile_demo`.
+10. **Demo Entry-Point**: `src/entries/demo.ts` exposes all parsers, exporters, and i18n
+    helpers on `globalThis`. If you add a new public API that should be demonstrable in
+    the demo, add it to both the `import` block and the `Object.assign(globalThis, …)`
+    call in that file, then run `npm run compile_demo`.
 
-10. **Citavi XML vs JSON**: The `CitaviParser` consumes Citavi's **JSON** export format
+11. **Citavi XML vs JSON**: The `CitaviParser` consumes Citavi's **JSON** export format
     (not XML). The `EndNoteParser` consumes a plain JS object tree derived from
     EndNote's **XML** format — callers are responsible for converting the XML DOM to
     a plain object array before passing it to the parser (see `demo.ts` for a reference
